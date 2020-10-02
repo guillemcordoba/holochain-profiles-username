@@ -1,73 +1,24 @@
-# Reusable Module Template
+# holochain-profiles-username module
 
-This repository is meant to be a scaffolding starting point to build reusable holochain modules (zome & UI module).
+Small UI module to set and retrieve usernames. This is one of the possible UI module counterparty to the [profiles-zome](https://github.com/holochain-open-dev/profiles-module).
 
-This is what is has included:
-
-- UI and Zome Instructions to use the module in a bigger app
-- CircleCI automatic integration with building and testing
-- Zome
-  - Basic sample code 
-  - Symbolic linking to the zome inside an example-dna
-  - Integrated tests with tryorama
-- UI
-  - Reusable WebComponents with `lit-element`
-  - Automated demoing with `storybook`, also publishing to `gh-pages`
-  - Automated testing with `Karma`
-  - Automated end-to-end testing
-  - GraphQl common libraries and setup code
-
-## How to scaffold a holochain reusable module
-
-1. Duplicate this repo: https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/duplicating-a-repository.
-2. Change all the calendar references (it's the example module that was used to create the template), and all necessary places.
-3. [Add CircleCI integration](https://circleci.com/docs/enterprise/quick-start/) with the repository.
-4. Remove this section of this README.md until this next line.
-
----
-
-# calendar-events-zome
-
-Small zome to create and see calendar events, in holochain RSM.
-
-This module is designed to be included in other DNAs, assuming as little as possible from those. It is packaged as a holochain zome, and an npm package that offers native Web Components that can be used across browsers and frameworks.
+This module is designed to be included in SPAs, assuming as little as possible from those. It is packaged as an npm package that offers native Custom Elements that can be used across browsers and frameworks.
 
 ## Documentation
 
-See our [`storybook`](https://holochain-open-dev.github.io/calendar-events-zome).
+See our [`storybook`](https://guillemcordoba.github.io/holochain-profiles-username).
 
 ## Assumptions
 
 These are the things you need to know to decide if you can use this module in your happ:
 
-- Zome:
-  - Optional dependency with the [resource-bookings-zome](https://github/holochain-open-dev/resource-bookings-zome).
-- UI module:
-  - `ApolloClient` as the state-management and data-fetching engine.
-  - The resolvers are declared in the frontend using [`makeExecutableSchema`](https://www.npmjs.com/package/@graphql-tools/schema).
-  - No framework or library assumed.
+- `ApolloClient` as the state-management and data-fetching engine.
+- The resolvers are declared in the frontend using [`makeExecutableSchema`](https://www.npmjs.com/package/@graphql-tools/schema).
+- No framework or library assumed.
 
 ## Installation and usage
 
-### Including the zome in your DNA
-
-You need to include this repository as a git submodule inside the `zomes/` folder of your application.
-
-From the root folder of your DNA:
-
-1. `git submodule add https://github.com/holochain-open-dev/calendar-events-zome zomes/calendar_events`.
-2.
-3. Modify the `Cargo.toml` and add `zomes/calendar_events` in the `[members]` array.
-4. Add the `calendar_events` zome in the `dna.json` of your `<DNA_NAME>.dna.workdir`.
-5. Compile the DNA with the usual `CARGO_TARGET=target cargo build --release --target wasm32-unknown-unknown `.
-
-Now the submodule is added and linked with the code from this repository. In the future, whenever this repository is cloned, run `git submodule init` and `git submodule update`.
-
-You can read more documentation on git submodules [here](https://git-scm.com/book/en/v2/Git-Tools-Submodules).
-
-### Using the UI module
-
-1. Install the module with `npm install @holochain-open-dev/calendar-events`.
+1. Install the module with `npm install holochain-profiles-username`.
 2. Add the GraphQl schema and resolvers to your `ApolloClient` setup:
 
 ```js
@@ -75,7 +26,7 @@ import { AppWebsocket } from "@holochain/conductor-api";
 import {
   calendarEventsTypeDefs,
   calendarEventsResolvers,
-} from "@holochain-open-dev/calendar-events";
+} from "holochain-profiles-username";
 
 export async function setupClient(url) {
   const appWebsocket = await AppWebsocket.connect(String(url));

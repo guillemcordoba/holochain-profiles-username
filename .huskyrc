@@ -1,5 +1,5 @@
 {
   "hooks": {
-    "pre-commit": "cd ui; npm run format"
+    "pre-commit": "npm run format"
   }
 }

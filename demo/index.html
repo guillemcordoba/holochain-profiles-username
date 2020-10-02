@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <style>
+      body {
+        background: #fafafa;
+      }
+    </style>
+  </head>
+  <body>
+    <hpu-set-username></hpu-set-username>
+
+    <script type="module">
+      import { html, render } from 'lit-html';
+      import { ProfilesUsernameModule } from '../dist';
+      import { setupApolloClientMock } from '../test/mocks';
+
+      setupApolloClientMock().then(client => {
+        new ProfilesUsernameModule({ apolloClient: client }).install();
+      });
+    </script>
+  </body>
+</html>
