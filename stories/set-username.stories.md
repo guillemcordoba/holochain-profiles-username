@@ -34,13 +34,13 @@ Small form to set the username for your holochain application.
 
 ### Installation & Usage
 
-Please note that this custom element needs to be installed together with all the other elements of the `ProfilesUsernameModule`. Go to [https://github.com/holochain-open-dev/calendar-events-module](https://github.com/holochain-open-dev/calendar-events-module) for installation instructions.
+Please note that this custom element needs to be installed together with all the other elements of the `ProfilesUsernameModule`. Go to [https://github.com/guillemcordoba/holochain-profiles-username](https://github.com/guillemcordoba/holochain-profiles-username) for installation instructions.
 
-After having installed the `CalendarEventsModule`, just add the element to your html:
+After having installed the `ProfilesUsernameModule`, just add the element to your html:
 
 ```html
 <body>
-  <hod-create-calendar-event></hod-create-calendar-event>
+  <hpu-set-username></hpu-set-username>
 </body>
 ```
 
@@ -50,7 +50,7 @@ After having installed the `CalendarEventsModule`, just add the element to your 
 export const Default = () =>
   html`
     <div style="height: 200px; width: 300px; padding: 16px;">
-      <hod-create-calendar-event></hod-create-calendar-event>
+      <hpu-set-username></hpu-set-username>
     </div>
   `;
 ```
@@ -61,9 +61,7 @@ export const InitialEventProperties = () => {
   const endTime = Math.floor(Date.now() / 1000) + 3600;
   return html`
     <div style="height: 200px; width: 300px; padding: 16px;">
-      <hod-create-calendar-event
-        .initialEventProperties=${{ startTime, endTime }}
-      ></hod-create-calendar-event>
+      <hpu-set-username .min-length></hpu-set-username>
     </div>
   `;
 };

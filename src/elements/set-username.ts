@@ -12,10 +12,10 @@ export abstract class SetUsername extends LitElement {
 
   /**
    * Minimum length that the username needs to have
-   * @attr username-min-length
+   * @attr min-length
    */
-  @property({ type: Number, attribute: 'username-min-length' })
-  usernameMinLength = 3;
+  @property({ type: Number, attribute: 'min-length' })
+  minLength = 3;
 
   /** Dependencies */
   abstract get _apolloClient(): ApolloClient<any>;
@@ -30,9 +30,9 @@ export abstract class SetUsername extends LitElement {
   firstUpdated() {
     this._usernameField.validityTransform = (newValue: string) => {
       this.requestUpdate();
-      if (newValue.length < this.usernameMinLength) {
+      if (newValue.length < this.minLength) {
         this._usernameField.setCustomValidity(
-          `Username is too shot, min. ${this.usernameMinLength} characters`
+          `Username is too shot, min. ${this.minLength} characters`
         );
         return {
           valid: false,
