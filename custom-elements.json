@@ -1,0 +1,31 @@
+{
+  "version": "experimental",
+  "tags": [
+    {
+      "name": "hpu-set-username",
+      "path": "./src/elements/set-username.ts",
+      "attributes": [
+        {
+          "name": "min-length",
+          "description": "Minimum length that the username needs to have",
+          "type": "number",
+          "default": "3"
+        }
+      ],
+      "properties": [
+        {
+          "name": "minLength",
+          "attribute": "min-length",
+          "description": "Minimum length that the username needs to have",
+          "type": "number",
+          "default": "3"
+        }
+      ],
+      "events": [
+        {
+          "name": "username-set"
+        }
+      ]
+    }
+  ]
+}
