@@ -10,6 +10,5 @@ describe('HpuSetUsername', () => {
     const el = await fixture(html` <hpu-set-username></hpu-set-username> `);
 
     expect(el.shadowRoot.innerHTML).to.include('SET USERNAME');
-
   });
 });

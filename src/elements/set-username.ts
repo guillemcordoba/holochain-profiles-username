@@ -15,7 +15,7 @@ export abstract class SetUsername extends LitElement {
    * @attr username-min-length
    */
   @property({ type: Number, attribute: 'username-min-length' })
-  usernameMinLength: number = 3;
+  usernameMinLength = 3;
 
   /** Dependencies */
   abstract get _apolloClient(): ApolloClient<any>;
