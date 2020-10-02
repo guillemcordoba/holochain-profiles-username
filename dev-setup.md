@@ -1,8 +1,6 @@
 # UI Developer Setup
 
-UI module for the `calendar-events-zome`.
-
-> This webcomponent follows the [open-wc](https://github.com/open-wc/open-wc) recommendation.
+UI module for the `profiles-zome`.
 
 ## Requirements
 
@@ -10,8 +8,6 @@ UI module for the `calendar-events-zome`.
 - Having [holochain-run-dna](https://www.npmjs.com/package/@holochain-open-dev/holochain-run-dna) installed.
 
 ## Local Demo with `es-dev-server`
-
-Run this from inside the `nix-shell` in which you have the `holochain` binary install.
 
 ```bash
 npm start
@@ -39,16 +35,6 @@ To run the tests in watch mode (for <abbr title="test driven development">TDD</a
 ```bash
 npm run test:watch
 ```
-
-## E2E tests
-
-Run this from inside the `nix-shell` in which you have the `holochain` binary install.
-
-```bash
-npm run e2e
-```
-
-Take into account that this will run the holochain conductor in the background to perform the tests.
 
 ## Demoing with Storybook
 

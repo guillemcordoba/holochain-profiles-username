@@ -24,8 +24,8 @@ These are the things you need to know to decide if you can use this module in yo
 ```js
 import { AppWebsocket } from "@holochain/conductor-api";
 import {
-  calendarEventsTypeDefs,
-  calendarEventsResolvers,
+  profilesUsernameTypeDefs,
+  profilesUsernameResolvers,
 } from "holochain-profiles-username";
 
 export async function setupClient(url) {
@@ -36,8 +36,8 @@ export async function setupClient(url) {
   const cellId = appInfo.cell_data[0][0];
 
   const executableSchema = makeExecutableSchema({
-    typeDefs: [rootTypeDef, calendarEventsTypeDefs],
-    resolvers: [calendarEventsResolvers(appWebsocket, cellId)],
+    typeDefs: [rootTypeDef, profilesUsernameTypeDefs],
+    resolvers: [profilesUsernameResolvers(appWebsocket, cellId)],
   });
 
   const schemaLink = new SchemaLink({ schema: executableSchema });
@@ -53,11 +53,11 @@ export async function setupClient(url) {
 3. In the root file of your application, install the module:
 
 ```js
-import { CalendarEventsModule } from "@holochain-open-dev/calendar-events";
+import { ProfilesUsernameModule } from "holochain-profiles-username";
 async function initApp() {
   const client = await setupClient(`ws://localhost:8888`);
 
-  const calendarEventsModule = new CalendarEventsModule(client);
+  const calendarEventsModule = new ProfilesUsernameModule(client);
 
   await calendarEventsModule.install();
 }
@@ -68,7 +68,7 @@ async function initApp() {
 ```html
 ...
 <body>
-  <hod-cal-full-calendar></hod-cal-full-calendar>
+  <hpu-set-username></hpu-set-username>
 </body>
 ```
 
@@ -76,10 +76,4 @@ Take into account that at this point the elements already expect a holochain con
 
 ## Developer setup
 
-This respository is structured in the following way:
-
-- Top level `src/` and `Cargo.toml` contains the code for the zome itself. This is to allow direct usage of the zome through git submodule.
-- `ui/`: UI library.
-- `example-dna/`: an example of a DNA that uses the zome. It contains a link to the zome code and its tryorama tests.
-
-Read the [UI developer setup](/ui/README.md) and the [Zome developer setup](/example-dna/README.md).
+Read the [UI developer setup](/dev-setup.md).
