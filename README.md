@@ -18,7 +18,7 @@ These are the things you need to know to decide if you can use this module in yo
 
 ## Installation and usage
 
-1. Install the module with `npm install holochain-profiles-username`.
+1. Add the module into the dependencies of your `package.json` with `holochain-profiles-username: "guillemcordoba/holochain-profiles-username`. Run `npm install`.
 2. Add the GraphQl schema and resolvers to your `ApolloClient` setup:
 
 ```js

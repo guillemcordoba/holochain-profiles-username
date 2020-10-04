@@ -56,12 +56,12 @@ export const Default = () =>
 ```
 
 ```js preview-story
-export const InitialEventProperties = () => {
+export const MinimumLength = () => {
   const startTime = Math.floor(Date.now() / 1000);
   const endTime = Math.floor(Date.now() / 1000) + 3600;
   return html`
     <div style="height: 200px; width: 300px; padding: 16px;">
-      <hpu-set-username .min-length></hpu-set-username>
+      <hpu-set-username .minLength=${5}></hpu-set-username>
     </div>
   `;
 };
