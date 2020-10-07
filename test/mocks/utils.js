@@ -18,3 +18,7 @@ export function randomHash() {
     ),
   };
 }
+
+export function hashToString(hash) {
+  return hash.hash_type.toString('hex') + hash.hash.toString('hex');
+}

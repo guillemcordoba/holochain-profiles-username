@@ -1,4 +1,4 @@
-import { randomHash } from './utils';
+import { randomHash, hashToString } from './utils';
 
 export class ProfilesMock {
   constructor() {
@@ -20,5 +20,11 @@ export class ProfilesMock {
   }
   get_my_profile() {
     return this.users[0];
+  }
+
+  get_agent_username({ agent_address }) {
+    return this.users.find(
+      user => user.agent_id === hashToString(agent_address)
+    ).username;
   }
 }
