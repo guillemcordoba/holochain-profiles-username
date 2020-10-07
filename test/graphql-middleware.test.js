@@ -1,6 +1,6 @@
 import { gql, ApolloClient, InMemoryCache } from '@apollo/client/core';
 import { expect } from '@open-wc/testing';
-import { GET_ALL_USERS, SET_USERNAME } from '../dist';
+import { GET_ALL_AGENTS, SET_USERNAME } from '../dist';
 
 import { setupApolloClientMock } from './mocks';
 
@@ -16,10 +16,10 @@ describe('Apollo middleware', () => {
     });
 
     const result = await client.query({
-      query: GET_ALL_USERS,
+      query: GET_ALL_AGENTS,
     });
 
-    expect(result.data.allUsers.length).to.equal(1);
-    expect(result.data.allUsers[0].username).to.equal('alice');
+    expect(result.data.allAgents.length).to.equal(1);
+    expect(result.data.allAgents[0].username).to.equal('alice');
   });
 });

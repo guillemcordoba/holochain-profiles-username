@@ -1,17 +1,17 @@
 import { gql } from '@apollo/client/core';
 
 export const profilesUsernameTypeDefs = gql`
-  type User {
+  type Agent {
     id: ID!
     username: String
   }
 
   extend type Query {
-    allUsers: [User!]!
-    me: User!
+    allAgents: [Agent!]!
+    me: Agent!
   }
 
   extend type Mutation {
-    setUsername(username: String!): User!
+    setUsername(username: String!): Agent!
   }
 `;

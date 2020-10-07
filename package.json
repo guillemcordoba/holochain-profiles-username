@@ -19,7 +19,8 @@
     "storybook": "npm run analyze && concurrently --kill-others --names tsc,storybook \"npm run build:watch\" \"start-storybook --node-resolve --watch --open\"",
     "storybook:build": "build-storybook",
     "storybook:publish": "npm run lint && npm run analyze && npm run storybook:build && gh-pages -d storybook-static",
-    "npm:publish": "npm run lint && npm run build && cp ../README.md dist/  && cp ../LICENSE dist/ && cp package.json dist/ && cd dist/ && npm publish --access public && rimraf dist/"
+    "npm:publish": "npm run lint && npm run build && cp ../README.md dist/  && cp ../LICENSE dist/ && cp package.json dist/ && cd dist/ && npm publish --access public && rimraf dist/",
+    "publish-to-branch": "npm run lint && npm run build && cp package.json dist && gh-pages -d dist -b ui-build"
   },
   "dependencies": {
     "@apollo/client": "^3.2.0",

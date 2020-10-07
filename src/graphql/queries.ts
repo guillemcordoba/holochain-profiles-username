@@ -9,9 +9,9 @@ export const SET_USERNAME = gql`
   }
 `;
 
-export const GET_ALL_USERS = gql`
-  query GetAllUsers {
-    allUsers {
+export const GET_ALL_AGENTS = gql`
+  query GetAllAgents {
+    allAgents {
       id
       username
     }

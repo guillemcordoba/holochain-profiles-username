@@ -11,8 +11,8 @@ export const profilesUsernameResolvers = (
   zomeName = 'profiles'
 ): Resolvers => ({
   Query: {
-    async allUsers(_, __) {
-      const allUsers = await appWebsocket.callZome({
+    async allAgents(_, __) {
+      const allAgents = await appWebsocket.callZome({
         cap: null as any,
         cell_id: cellId,
         zome_name: zomeName,
@@ -20,7 +20,7 @@ export const profilesUsernameResolvers = (
         payload: null,
         provenance: cellId[1],
       });
-      return allUsers.map(
+      return allAgents.map(
         (agent: { agent_id: AgentPubKey; username: string }) => ({
           id: hashToString(agent.agent_id),
           username: agent.username,
