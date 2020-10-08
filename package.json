@@ -9,7 +9,7 @@
   "scripts": {
     "start": "concurrently --kill-others --names tsc,dev-server \"npm run build:watch\" \"web-dev-server --config demo/web-dev-server.config.mjs\"",
     "start1": "web-dev-server --config demo/web-dev-server.config.mjs",
-    "build": "rimraf dist && tsc",
+    "build": "rimraf dist && tsc && cp -r test/mocks dist/",
     "build:watch": "tsc --watch",
     "test": "tsc && web-test-runner --coverage --puppeteer",
     "test:watch": "web-test-runner --watch --puppeteer",
@@ -26,6 +26,7 @@
     "@apollo/client": "^3.2.0",
     "@graphql-tools/schema": "^6.2.3",
     "@holochain/conductor-api": "guillemcordoba/holochain-conductor-api#build",
+    "holochain-ui-test-utils": "guillemcordoba/holochain-ui-test-utils",
     "@material/mwc-button": "^0.18.0",
     "@material/mwc-textfield": "^0.18.0",
     "graphql": "^15.3.0",

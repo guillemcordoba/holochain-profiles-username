@@ -1,4 +1,4 @@
-import { randomHash, hashToString } from './utils';
+import { randomHash, hashToString } from 'holochain-ui-test-utils';
 
 export class ProfilesMock {
   constructor() {

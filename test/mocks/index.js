@@ -7,7 +7,7 @@ import {
   profilesUsernameResolvers,
   profilesUsernameTypeDefs,
 } from '../../dist';
-import { AppWebsocketMock } from './AppWebsocket.mock';
+import { AppWebsocketMock, randomHash } from 'holochain-ui-test-utils';
 import { ProfilesMock } from './profiles.mock';
 
 const rootTypeDef = gql`
@@ -26,7 +26,7 @@ export async function getAppWebsocket() {
   if (process.env.E2E) return AppWebsocket.connect('ws://localhost:8888');
   else {
     const dnaMock = new ProfilesMock();
-    return new AppWebsocketMock(dnaMock);
+    return new AppWebsocketMock(randomHash(), { profiles: dnaMock });
   }
 }
 
