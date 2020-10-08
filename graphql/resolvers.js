@@ -30,14 +30,17 @@ export function profilesUsernameResolvers(appWebsocket, cellId, zomeName = 'prof
             },
             async me(_, __) {
                 const profile = await callZome('get_my_profile', null);
-                return profile;
+                return {
+                    id: profile.agent_id,
+                    username: profile.username,
+                };
             },
         },
         Mutation: {
             async setUsername(_, { username }) {
                 const agent = await callZome('create_profile', { username });
                 return {
-                    id: hashToString(cellId[1]),
+                    id: agent,
                     username,
                 };
             },

@@ -15,4 +15,12 @@ export const GET_ALL_AGENTS = gql `
     }
   }
 `;
+export const GET_MY_PROFILE = gql `
+  query GetMyProfile {
+    me {
+      id
+      username
+    }
+  }
+`;
 //# sourceMappingURL=queries.js.map

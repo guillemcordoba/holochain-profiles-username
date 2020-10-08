@@ -1,6 +1,7 @@
-export { ProfilesUsernameModule } from './profiles-username.module';
-export { SetUsername, defineSetUsername } from './elements/set-username';
-export { GET_ALL_AGENTS, SET_USERNAME } from './graphql/queries';
-export { profilesUsernameResolvers } from './graphql/resolvers';
-export { profilesUsernameTypeDefs } from './graphql/schema';
+export * from './profiles-username.module';
+export * from './types';
+export * from './elements/set-username';
+export * from './graphql/queries';
+export * from './graphql/resolvers';
+export * from './graphql/schema';
 //# sourceMappingURL=index.js.map
