@@ -23,8 +23,11 @@ export class ProfilesMock {
   }
 
   get_agent_username({ agent_address }) {
-    return this.users.find(
-      user => user.agent_id === hashToString(agent_address)
-    ).username;
+    const agent = this.users.find(
+      user => hashToString(user.agent_id) === agent_address
+    );
+
+    if (!agent) throw new Error('Given agent has not created any profile yet');
+    return agent.username;
   }
 }
