@@ -6,6 +6,7 @@ import type { TextField } from '@material/mwc-textfield';
 import '@material/mwc-textfield';
 import '@material/mwc-button';
 import { SET_USERNAME } from '../graphql/queries';
+import { sharedStyles } from '../sharedStyles';
 
 export abstract class SetUsername extends LitElement {
   /** Public attributes */
@@ -48,24 +49,7 @@ export abstract class SetUsername extends LitElement {
     };
   }
 
-  static get styles() {
-    return css`
-      .row {
-        display: flex;
-        flex-direction: row;
-      }
-      .column {
-        display: flex;
-        flex-direction: column;
-      }
-      .small-margin {
-        margin-top: 6px;
-      }
-      .big-margin {
-        margin-top: 23px;
-      }
-    `;
-  }
+  static styles = sharedStyles;
 
   async setUsername() {
     const username = this._usernameField.value;
@@ -113,15 +97,4 @@ export abstract class SetUsername extends LitElement {
       </div>
     `;
   }
-}
-
-export function defineSetUsername(apolloClient: ApolloClient<any>): void {
-  customElements.define(
-    'hpu-set-username',
-    class extends SetUsername {
-      get _apolloClient() {
-        return apolloClient;
-      }
-    }
-  );
 }
