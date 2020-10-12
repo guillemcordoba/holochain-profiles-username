@@ -1,9 +1,10 @@
 import { __decorate } from "tslib";
-import { LitElement, css, html, query, property } from 'lit-element';
+import { LitElement, html, query, property } from 'lit-element';
 import { classMap } from 'lit-html/directives/class-map';
 import '@material/mwc-textfield';
 import '@material/mwc-button';
 import { SET_USERNAME } from '../graphql/queries';
+import { sharedStyles } from '../sharedStyles';
 export class SetUsername extends LitElement {
     constructor() {
         /** Public attributes */
@@ -32,24 +33,6 @@ export class SetUsername extends LitElement {
                 valid: true,
             };
         };
-    }
-    static get styles() {
-        return css `
-      .row {
-        display: flex;
-        flex-direction: row;
-      }
-      .column {
-        display: flex;
-        flex-direction: column;
-      }
-      .small-margin {
-        margin-top: 6px;
-      }
-      .big-margin {
-        margin-top: 23px;
-      }
-    `;
     }
     async setUsername() {
         const username = this._usernameField.value;
@@ -95,17 +78,11 @@ export class SetUsername extends LitElement {
     `;
     }
 }
+SetUsername.styles = sharedStyles;
 __decorate([
     property({ type: Number, attribute: 'min-length' })
 ], SetUsername.prototype, "minLength", void 0);
 __decorate([
     query('#username-field')
 ], SetUsername.prototype, "_usernameField", void 0);
-export function defineSetUsername(apolloClient) {
-    customElements.define('hpu-set-username', class extends SetUsername {
-        get _apolloClient() {
-            return apolloClient;
-        }
-    });
-}
 //# sourceMappingURL=set-username.js.map

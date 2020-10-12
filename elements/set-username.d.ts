@@ -18,8 +18,7 @@ export declare abstract class SetUsername extends LitElement {
         [key: string]: boolean;
     };
     firstUpdated(): void;
-    static get styles(): import("lit-element").CSSResult;
+    static styles: import("lit-element").CSSResult;
     setUsername(): Promise<void>;
     render(): import("lit-element").TemplateResult;
 }
-export declare function defineSetUsername(apolloClient: ApolloClient<any>): void;

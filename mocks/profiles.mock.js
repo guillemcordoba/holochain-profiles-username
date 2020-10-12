@@ -20,21 +20,25 @@ export class ProfilesMock {
 
   get_my_profile(_, provenance) {
     const agent = this.findAgent(hashToString(provenance));
+
+    if (!agent)
+      return {
+        agent_id: hashToString(provenance),
+      };
     return {
       agent_id: hashToString(agent.agent_id),
-      username: agent.username,
+      username: agent ? agent.username : undefined,
     };
   }
 
   findAgent(agent_address) {
-    const agent = this.agents.find(
+    return this.agents.find(
       user => hashToString(user.agent_id) === agent_address
     );
-    if (!agent) throw new Error('Given agent has not created any profile yet');
-    return agent;
   }
 
   get_agent_username({ agent_address }) {
-    return this.findAgent(agent_address).username;
+    const agent = this.findAgent(agent_address);
+    return agent ? agent.username : undefined;
   }
 }
