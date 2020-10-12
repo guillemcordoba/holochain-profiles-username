@@ -20,6 +20,11 @@ export class ProfilesMock {
 
   get_my_profile(_, provenance) {
     const agent = this.findAgent(hashToString(provenance));
+
+    if (!agent)
+      return {
+        agent_id: hashToString(provenance),
+      };
     return {
       agent_id: hashToString(agent.agent_id),
       username: agent ? agent.username : undefined,
